@@ -1,7 +1,7 @@
 from func_connections import connect_dydx
 from func_private import abort_all_positions
 from constants import ABORT_ALL_POSITIONS, FIND_COINTEGRATED
-from func_public import construct_market_prices
+from func_public import construct_market_prices, get_candles_historical
 
 if __name__ == "__main__":
     
@@ -33,4 +33,3 @@ if __name__ == "__main__":
             print("Error closing all positions: ", e)
             exit(1)
 
-    
