@@ -14,7 +14,7 @@ FIND_COINTEGRATED = True
 PLACE_TRADES = True
 
 # Resolution
-RESOLUTION = "1HOUR"
+RESOLUTION = "1DAY"
 
 # Stats Window
 WINDOW = 21

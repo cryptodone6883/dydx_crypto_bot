@@ -2,6 +2,7 @@ from func_connections import connect_dydx
 from func_private import abort_all_positions
 from constants import ABORT_ALL_POSITIONS, FIND_COINTEGRATED
 from func_public import construct_market_prices, get_candles_historical
+from func_cointegration import store_cointegration_results
 
 if __name__ == "__main__":
     
@@ -26,6 +27,8 @@ if __name__ == "__main__":
 
     # Find cointegrated pairs
     if FIND_COINTEGRATED:
+
+        # construct market price
         try:
             print("Fetching market prices, please allow 3 mins ...")
             df_market_prices = construct_market_prices(client)
@@ -33,3 +36,13 @@ if __name__ == "__main__":
             print("Error closing all positions: ", e)
             exit(1)
 
+        # store cointegrated pairs
+        try:
+            print("store cointegrated pairs ...")
+            store_result = store_cointegration_results(df_market_prices)
+            if store_result != "saved":
+                print("Error saving cointegrated pairs")
+                exit(1)
+        except Exception as e:
+            print("Error saving cointegrated pairs", e)
+            exit(1)
