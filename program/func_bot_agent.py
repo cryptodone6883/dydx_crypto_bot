@@ -102,7 +102,7 @@ class BotAgent:
         #print status
         print("----")
         print(f"{self.market_1}: Placing first order...")
-        print(f"side: {self.base_side}, Size, {self.base_size}, Price: {self.base_price}")            
+        print(f"side: {self.base_side}, Size: {self.base_size}, Price: {self.base_price}")            
         print("----")
 
         # place base order
@@ -136,7 +136,7 @@ class BotAgent:
         #print status open second order
         print("----")
         print(f"{self.market_2}: Placing second order...")
-        print(f"side: {self.quote_side}, Size, {self.quote_size}, Price: {self.quote_price}")            
+        print(f"side: {self.quote_side}, Size: {self.quote_size}, Price: {self.quote_price}")            
         print("----")       
         try:
             quote_order = place_market_order(
@@ -165,7 +165,7 @@ class BotAgent:
             self.order_dict["comments"] = f"{self.market_2} failed to fill"
 
         
-              # Close order 1:
+            # Close order 1:
             try:
                 close_order = place_market_order(
                 self.client,
