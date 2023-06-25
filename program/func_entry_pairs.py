@@ -109,7 +109,7 @@ def open_positions(client):
                             market_2= quote_market,
                             base_side=base_side,
                             base_size=base_size,
-                            base_price=str(base_price),
+                            base_price=accept_base_price,
                             quote_side=quote_side,
                             quote_size=quote_size,
                             quote_price=accept_quote_price,
@@ -136,5 +136,5 @@ def open_positions(client):
     # Save agents
     print(f"success: {len(bot_agents)} New Pairs Live")
     if (len(bot_agents) > 0):
-        with open("bot_agent.json", "w") as f:
+        with open("bot_agents.json", "w") as f:
             json.dump(bot_agents, f)
