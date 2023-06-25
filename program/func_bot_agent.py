@@ -203,6 +203,6 @@ class BotAgent:
                 exit(1)
 
             # Return success result
-            else:
-                self.order_dict["pair_status"] = "LIVE"
-                return self.order_dict
+        else:
+            self.order_dict["pair_status"] = "LIVE"
+            return self.order_dict
