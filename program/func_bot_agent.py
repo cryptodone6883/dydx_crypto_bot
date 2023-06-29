@@ -130,7 +130,7 @@ class BotAgent:
         # guard abort if order fail
         if order_status_m1 != "live":
             self.order_dict["pair_status"] = "ERROR"
-            self.order_dict["comments"] = f"{self.market_1} failed to fill"
+            self.order_dict["comments"] = f"{self.market_2} failed to fill"
             return self.order_dict
         
         #print status open second order

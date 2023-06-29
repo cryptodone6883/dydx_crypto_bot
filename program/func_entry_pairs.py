@@ -24,8 +24,19 @@ def open_positions(client):
     # get markets from referencing of min order size, tick size etc
     markets = client.public.get_markets().data
 
+
     # Initialize container for BotAgent results
-    bot_agents = []
+    bot_agents = []    
+    try:
+        open_positions_file = open("bot_agents.json")
+        open_positions_dict = json.load(open_positions_file)
+
+        for p in open_positions_dict:
+            bot_agents.append(p)
+        #pprint(bot_agents)
+    except:
+        bot_agents = [] 
+    
 
     # Find ZScore tiggers
     for index, row in df.iterrows():
@@ -134,7 +145,7 @@ def open_positions(client):
                             print("-----")
 
     # Save agents
-    print(f"success: {len(bot_agents)} New Pairs Live")
+    print(f"success: {len(bot_agents)} Pairs Live")
     if (len(bot_agents) > 0):
         with open("bot_agents.json", "w") as f:
             json.dump(bot_agents, f)
